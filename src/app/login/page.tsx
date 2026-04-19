@@ -108,7 +108,7 @@ function LoginPageClient() {
 
       if (res.ok) {
         const redirect = searchParams.get('redirect') || '/';
-        router.替换(redirect);
+        router.replace(redirect);
       } else if (res.status === 401) {
         setError('密码错误');
       } else {
