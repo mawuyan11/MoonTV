@@ -87,7 +87,7 @@ function LoginPageClient() {
         Boolean((window as any).RUNTIME_CONFIG?.ENABLE_REGISTER)
       );
     }
-  }, []);
+  }， []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -108,7 +108,7 @@ function LoginPageClient() {
 
       if (res.ok) {
         const redirect = searchParams.get('redirect') || '/';
-        router.replace(redirect);
+        router.替换(redirect);
       } else if (res.status === 401) {
         setError('密码错误');
       } else {
@@ -189,6 +189,7 @@ function LoginPageClient() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <span>忘记密码？发送邮件到moontv@mawuyan.top</span>
           </div>
 
           {error && (
