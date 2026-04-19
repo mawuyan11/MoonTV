@@ -221,7 +221,7 @@ function LoginPageClient() {
             </div>
           ) : (
             <button
-              输入='submit'
+              type='submit'
               disabled={
                 !password || loading || (shouldAskUsername && !username)
               }
