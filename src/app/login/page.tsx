@@ -87,7 +87,7 @@ function LoginPageClient() {
         Boolean((window as any).RUNTIME_CONFIG?.ENABLE_REGISTER)
       );
     }
-  }， []);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
