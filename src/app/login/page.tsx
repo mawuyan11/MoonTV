@@ -191,7 +191,7 @@ function LoginPageClient() {
             />
           </div>
           <h4 className='text-sm font-medium text-gray-700 dark:text-gray-300 mb-3'>
-            忘记密码？发送邮件到moontv@mawuyan.top
+            忘记密码？发送邮件到moontv@mawuyan.top联系管理员重置密码
           </h4>
 
           {error && (
@@ -221,7 +221,7 @@ function LoginPageClient() {
             </div>
           ) : (
             <button
-              type='submit'
+              输入='submit'
               disabled={
                 !password || loading || (shouldAskUsername && !username)
               }
