@@ -189,8 +189,9 @@ function LoginPageClient() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <br>
-            <span>忘记密码？发送邮件到moontv@mawuyan.top</span>
+            <h4 className='text-sm font-medium text-gray-700 dark:text-gray-300 mb-3'>
+              忘记密码？发送邮件到moontv@mawuyan.top
+            </h4>
           </div>
 
           {error && (
