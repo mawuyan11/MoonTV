@@ -3,6 +3,14 @@
 import Hls from 'hls.js';
 
 /**
+ * 检查图片 URL 是否来自豆瓣
+ */
+export function isDoubanImageUrl(url: string): boolean {
+  if (!url) return false;
+  return url.includes('douban.com') || url.includes('doubanio.com');
+}
+
+/**
  * 获取图片代理 URL 设置
  */
 export function getImageProxyUrl(): string | null {
@@ -30,9 +38,19 @@ export function getImageProxyUrl(): string | null {
 
 /**
  * 处理图片 URL，如果设置了图片代理则使用代理
+ * 对于豆瓣图片，默认使用 /api/image-proxy 进行代理
  */
 export function processImageUrl(originalUrl: string): string {
   if (!originalUrl) return originalUrl;
+
+  // 如果是豆瓣图片且没有设置自定义代理，默认使用 /api/image-proxy
+  if (isDoubanImageUrl(originalUrl)) {
+    const customProxyUrl = getImageProxyUrl();
+    if (!customProxyUrl) {
+      // 使用内置的 /api/image-proxy 代理豆瓣图片
+      return `/api/image-proxy?url=${encodeURIComponent(originalUrl)}`;
+    }
+  }
 
   const proxyUrl = getImageProxyUrl();
   if (!proxyUrl) return originalUrl;
